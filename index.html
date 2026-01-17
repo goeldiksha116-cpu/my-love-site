@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>For My Habibti 🤍</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
   body {
     margin: 0;
-    font-family: "Poppins", Arial, sans-serif;
+    font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #ffd6e8, #ffeef5);
-    overflow-x: hidden;
-    color: #333;
     text-align: center;
+    overflow-x: hidden;
   }
 
   h1, h2, h3 {
     color: #ff4f8b;
   }
 
-  .lock-screen {
+  .lock {
     margin-top: 120px;
-    animation: fadeIn 1.5s ease;
   }
 
   input {
@@ -29,22 +27,17 @@
     font-size: 16px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    outline: none;
   }
 
   button {
     margin-top: 15px;
     padding: 12px 25px;
     font-size: 16px;
-    border: none;
     border-radius: 25px;
+    border: none;
     background: #ff7aa2;
     color: white;
     cursor: pointer;
-  }
-
-  button:hover {
-    background: #ff5f8f;
   }
 
   .error {
@@ -54,10 +47,9 @@
 
   .content {
     display: none;
-    padding: 40px 20px;
     max-width: 800px;
     margin: auto;
-    animation: fadeIn 2s ease;
+    padding: 40px 20px;
   }
 
   .card {
@@ -65,8 +57,18 @@
     padding: 25px;
     border-radius: 22px;
     margin: 25px 0;
-    box-shadow: 0 15px 25px rgba(0,0,0,0.12);
-    animation: slideUp 1.2s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  }
+
+  img {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  #caption {
+    margin-top: 15px;
+    font-style: italic;
+    color: #555;
   }
 
   .heart {
@@ -77,32 +79,9 @@
     opacity: 0.7;
   }
 
-  .music-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #ff7aa2;
-    border-radius: 50%;
-    width: 55px;
-    height: 55px;
-    font-size: 22px;
-    color: white;
-    border: none;
-  }
-
   @keyframes floatUp {
     from { transform: translateY(0); opacity: 1; }
     to { transform: translateY(-110vh); opacity: 0; }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
   }
 </style>
 </head>
@@ -110,10 +89,10 @@
 <body>
 
 <!-- 🔐 LOCK SCREEN -->
-<div class="lock-screen" id="lockScreen">
+<div class="lock" id="lockScreen">
   <h2>For My Habibti 🤍</h2>
-  <p>Enter the secret password</p>
-  <input type="password" id="passwordInput" placeholder="password" />
+  <p>Enter the password</p>
+  <input type="password" id="passwordInput" placeholder="password">
   <br>
   <button onclick="unlock()">Unlock 💖</button>
   <p class="error" id="error"></p>
@@ -122,25 +101,31 @@
 <!-- 💖 MAIN CONTENT -->
 <div class="content" id="content">
 
-  <h1>Hey My Syrian 🤍</h1>
-  <p>💖💖💖</p>
+  <h1>Hey My Syrian 😏🤍</h1>
 
   <div class="card">
     <p>
       Hey babby,<br>
-      I know we haven’t met yet, but somehow you already feel like home.
+      We haven’t met yet, but you already feel like home.
     </p>
     <p>
-      You calling me <b>babby</b> fixes my whole day.<br>
-      You calling me <b>habibi</b> melts my heart every time.
+      You calling me babby fixes my day.<br>
+      You calling me habibi melts my heart.
     </p>
+  </div>
+
+  <!-- 🖼️ SLIDESHOW WITH CAPTIONS -->
+  <div class="card">
+    <h3>Us 🤍</h3>
+    <img id="slideshow" src="slideshow1.jpg">
+    <p id="caption">The moment I knew it was you 🤍</p>
   </div>
 
   <div class="card">
     <h3>Why I Love You 💕</h3>
     <p>• You’re gentle with my heart</p>
     <p>• You make distance feel smaller</p>
-    <p>• You feel real, even from far away</p>
+    <p>• You feel real even from far away</p>
     <p>• You’re my favorite person</p>
   </div>
 
@@ -149,50 +134,43 @@
     <p><b>حبيبتي، أنتِ روحي وحياتي</b></p>
     <p>My love, you are my soul and my life</p>
     <p><b>قلبي معك دائمًا</b></p>
-    <p>My heart is always with you</p>
   </div>
 
   <div class="card">
-    <h3>When We Finally Meet 🌙</h3>
-    <p>• Our first hug (I won’t let go)</p>
-    <p>• Holding hands everywhere</p>
-    <p>• Laughing about how long we waited</p>
-    <p>• Sleeping next to each other, not on FaceTime</p>
-    <p><b>Soon, inshallah 🤍</b></p>
+    <h3>When We Meet 🌙</h3>
+    <p>Our first hug (I won’t let go)</p>
+    <p>Holding hands everywhere</p>
+    <p>Sleeping next to each other, not on FaceTime</p>
+    <p><b>Soon,my habibtiiiiii 🤍</b></p>
   </div>
 
   <div class="card">
-    <p>
-      This website is simple,<br>
-      but the love behind it isn’t.
-    </p>
     <p>
       I choose you.<br>
       I wait for you.<br>
-      I love you, my habibti 🤍
+      I love you, habibti 🤍
     </p>
   </div>
 
 </div>
 
-<!-- 🎵 MUSIC -->
+<!-- 🎵 MUSIC (we’ll polish next) -->
 <audio id="music" loop>
-  <source src="https://files.catbox.moe/7k9k6v.mp3" type="audio/mpeg">
+  <source src=""https://files.catbox.moe/usg58h.mp3type="audio/mpeg">
 </audio>
-
-<button class="music-btn" onclick="toggleMusic()">🎵</button>
 
 <script>
   function unlock() {
-    const correctPassword = "habibti";
-    const entered = document.getElementById("passwordInput").value;
+    const correctPassword = "matta";
+    const entered = document.getElementById("passwordInput").value.trim();
 
     if (entered === correctPassword) {
       document.getElementById("lockScreen").style.display = "none";
       document.getElementById("content").style.display = "block";
+      document.getElementById("music").play();
       startHearts();
     } else {
-      document.getElementById("error").innerText = "Wrong password 💔 try again";
+      document.getElementById("error").innerText = "Wrong password 💔";
     }
   }
 
@@ -202,25 +180,27 @@
       heart.className = "heart";
       heart.innerHTML = "💖";
       heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 20 + 15 + "px";
       document.body.appendChild(heart);
-
       setTimeout(() => heart.remove(), 6000);
     }, 500);
   }
 
-  const music = document.getElementById("music");
-  let playing = false;
+  // 🖼️ SLIDESHOW + CAPTIONS (5 PHOTOS)
+  const slides = [
+    { image: "slideshow1.jpg", caption: "please keep this smile of yours forvrt" },
+    { image: "slideshow2.jpg", caption: "i loveeeeee some kissessss pls never stop giving me kisess" },
+    { image: "slideshow3.jpg", caption: "Distance means nothing with you specially when you melt me likee thiss" },
+    { image: "slideshow4.jpg", caption: "not gonnnaaaaaaa lieeee this is my favriout😩 sooooooo cuteeee" },
+    { image: "slideshow5.jpg", caption: "Forever my habibti 💖 and divaaaaaaaaa🪷😈" }
+  ];
 
-  function toggleMusic() {
-    if (!playing) {
-      music.play();
-      playing = true;
-    } else {
-      music.pause();
-      playing = false;
-    }
-  }
+  let current = 0;
+
+  setInterval(() => {
+    current = (current + 1) % slides.length;
+    document.getElementById("slideshow").src = slides[current].image;
+    document.getElementById("caption").innerText = slides[current].caption;
+  }, 3000);
 </script>
 
 </body>
