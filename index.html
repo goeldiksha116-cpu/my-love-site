@@ -2,145 +2,132 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For My Valentine 🤍</title>
+<title>For My Habibti 🤍</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-    background: black;
-    .confetti {
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* 🔐 LOCK SCREEN */
+#lockScreen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  z-index: 99999;
+}
+
+#lockScreen input {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 15px;
+  font-size: 16px;
+  text-align: center;
+}
+
+#lockScreen button {
+  margin-top: 15px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  background: white;
+  color: #ff4f8b;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#error {
+  margin-top: 10px;
+  color: #b00020;
+}
+
+/* 🌸 SLIDES */
+section {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: white;
+  padding: 40px 20px;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+section.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+h1, h2 {
+  margin-top: 60px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+img {
+  max-width: 85%;
+  max-height: 60vh;
+  border-radius: 25px;
+  margin-top: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.caption {
+  margin-top: 20px;
+  font-style: italic;
+  background: rgba(0,0,0,0.45);
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* 🎉 CONFETTI */
+.confetti {
   position: fixed;
   top: -20px;
   font-size: 24px;
   z-index: 9999;
   pointer-events: none;
-  animation-name: fall;
-  animation-timing-function: linear;
+  animation: fall linear forwards;
 }
-    
-  }
 
-  /* 🔐 LOCK SCREEN */
-  #lockScreen {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    z-index: 10;
-    text-align: center;
-  }
-
-  #lockScreen input {
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 15px;
-    text-align: center;
-  }
-
-  #lockScreen button {
-    margin-top: 15px;
-    padding: 12px 30px;
-    border-radius: 30px;
-    border: none;
-    background: white;
-    color: #ff4f8b;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  #error {
-    margin-top: 10px;
-    color: #b00020;
-  }
-
-  /* 🌸 STORY SECTIONS */
-  section {
-    position: absolute;
-    inset: 0;
-    padding: 40px 20px;
-    box-sizing: border-box;
-    text-align: center;
-    color: white;
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
     opacity: 0;
-    transition: opacity 2s ease;
-    background-size: cover;
-    background-position: center;
   }
+}
 
-  section.active {
-    opacity: 1;
-    z-index: 1;
-  }
+/* 💘 BUTTONS */
+.choice {
+  padding: 15px 35px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: none;
+  background: white;
+  color: #ff4f8b;
+  cursor: pointer;
+  margin: 15px;
+}
 
-  h1, h2 {
-    margin-top: 60px;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  }
-
-  img {
-    max-width: 85%;
-    max-height: 60vh;
-    border-radius: 25px;
-    margin-top: 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    animation: heartbeat 3s infinite;
-  }
-
-  .caption {
-    margin-top: 20px;
-    font-style: italic;
-    font-size: 18px;
-    background: rgba(0,0,0,0.35);
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 20px;
-  }
-
-  button.choice {
-    padding: 15px 35px;
-    font-size: 18px;
-    border-radius: 30px;
-    border: none;
-    background: white;
-    color: #ff4f8b;
-    cursor: pointer;
-    margin: 15px;
-  }
-
-  @keyframes heartbeat {
-    0% { transform: scale(1); }
-    25% { transform: scale(1.03); }
-    50% { transform: scale(1); }
-    75% { transform: scale(1.03); }
-    100% { transform: scale(1); }
-  }
-
-  .confetti {
-    position: fixed;
-    top: -10px;
-    font-size: 20px;
-    animation: fall 3s linear forwards;
-  }
-
-  @keyframes fall {
-    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-  }
-
-  /* 🖼️ BACKGROUNDS */
-  #page1 { background-image: url("bg1.jpg"); }
-  #page2 { background-image: url("bg2.jpg"); }
-  #page3 { background-image: url("bg3.jpg"); }
-  #page4 { background-image: url("bg4.jpg"); }
-  #page5 { background-image: url("bg5.jpg"); }
+/* 🖼️ BACKGROUNDS */
+#page1 { background-image: url("bg1.jpg"); }
+#page2 { background-image: url("bg2.jpg"); }
+#page3 { background-image: url("bg3.jpg"); }
+#page4 { background-image: url("bg4.jpg"); }
+#page5 { background-image: url("bg5.jpg"); }
+#page6 { background-image: url("bg6.jpg"); }
 </style>
 </head>
 
@@ -148,10 +135,10 @@
 
 <!-- 🔐 LOCK SCREEN -->
 <div id="lockScreen">
-  <h1>For My Habibti 🤍</h1>
-  <p>Enter the password</p>
-  <input type="password" id="passwordInput" placeholder="password">
-  <button onclick="unlock()">Unlock 💖</button>
+  <h1>لـحبيبتي 🤍</h1>
+  <p>ادخلي كلمة السر يا قلبي</p>
+  <input type="password" id="passwordInput" placeholder="كلمة السر">
+  <button onclick="unlock()">دخول 💖</button>
   <div id="error"></div>
 </div>
 
@@ -160,72 +147,79 @@
   <source src="https://files.catbox.moe/usg58h.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 🌸 STORY PAGES -->
+<!-- 🌸 SLIDES -->
 <section id="page1" class="active">
   <h1>Hey My Syrian 🤍</h1>
-  <h2>This is just for you</h2>
+  <h2>This is only for youuuuu seee i told youu my heart onlyyyyyy belongs tooooo uuuuu</h2>
 </section>
 
 <section id="page2">
-  <h2>This Is You 🤍</h2>
+  <h2>This is you killling meeeeeeeeee 🤍</h2>
   <img src="slideshow1.jpg">
-  <div class="caption">pleaseeeee keeep my louts alwayyyys happpy and never let anybody take her smile awayyyyy🧿</div>
+  <div class="caption">i willllllll dieeeee from thissss smileeeee pleaseee keep my loutsssssss this happy even moreee than thissss for forever♾️😘😏🪷</div>
 </section>
 
 <section id="page3">
-  <h2>Every Time I See You</h2>
+  <h2>Every time i want someee kissses immmm your babbby</h2>
   <img src="slideshow2.jpg">
-  <div class="caption">please i want thisssss kissessssssss forever😩😘🪷♾️</div>
+  <div class="caption">i wantttttttttt thisssss kisssssessss foreverrrrrrrr pleaseeeeeee😳🛐e</div>
 </section>
 
 <section id="page4">
-  <h2>No Matter The Distance</h2>
+  <h2>the cutest of alllllllll</h2>
   <img src="slideshow3.jpg">
-  <div class="caption">im so obsesssssssed with thissssss cutieeeeeeeeeeeeee please look at her so cuteeeeeeee😝😏</div>
+  <div class="caption">theeeeeee cutestttttttt im obbsessssesd my loveeeeee soooooo cuteeeeeeeeee😝🧿😍</div>
 </section>
-  
+
 <section id="page5">
+  <h2>myyyy princesssssss</h2>
+  <img src="slideshow4.jpg">
+  <div class="caption">youre princesssssssss my princesssssss i will do anything forrrrrrr🛐🪷</div>
+</section>
+
+<section id="page6">
   <h1>So… 💖</h1>
   <h2>Will you be my Valentine?</h2>
-  <img src="slideshow4.jpg">
+  <img src="slideshow5.jpg">
   <br><br>
   <button class="choice" onclick="answerYes()">YES 💘</button>
   <button class="choice" onclick="answerNo()">NO 🙈</button>
 </section>
 
 <script>
-  const correctPassword = "matta";
-  const pages = document.querySelectorAll("section");
-  let currentPage = 0;
-  let started = false;
+const correctPassword = "habibti";
 
-  function unlock() {
-    const entered = document.getElementById("passwordInput").value.trim();
-    if (entered === correctPassword) {
-      document.getElementById("lockScreen").style.display = "none";
-      startStory();
-    } else {
-      document.getElementById("error").innerText = "Wrong password 💔";
-    }
+const pages = document.querySelectorAll("section");
+let currentPage = 0;
+let started = false;
+
+function unlock() {
+  const entered = document.getElementById("passwordInput").value.trim().toLowerCase();
+  if (entered === correctPassword) {
+    document.getElementById("lockScreen").style.display = "none";
+    startStory();
+  } else {
+    document.getElementById("error").innerText = "غلط يا حبيبتي 🥺";
   }
+}
 
-  function startStory() {
-    if (started) return;
-    started = true;
+function startStory() {
+  if (started) return;
+  started = true;
 
-    const music = document.getElementById("music");
-    music.volume = 0.6;
-    music.play();
+  const music = document.getElementById("music");
+  music.volume = 0.6;
+  music.play();
 
-    setInterval(() => {
-      pages[currentPage].classList.remove("active");
-      currentPage = (currentPage + 1) % pages.length;
-      pages[currentPage].classList.add("active");
-    }, 40000);
-  }
+  setInterval(() => {
+    pages[currentPage].classList.remove("active");
+    currentPage = (currentPage + 1) % pages.length;
+    pages[currentPage].classList.add("active");
+  }, 20000);
+}
 
 function confettiBlast() {
-  const emojis = ["💖", "💘", "✨", "🌸", "🥰"];
+  const emojis = ["💖","💘","✨","🌸","🥰"];
   for (let i = 0; i < 150; i++) {
     const c = document.createElement("div");
     c.className = "confetti";
@@ -237,15 +231,16 @@ function confettiBlast() {
   }
 }
 
-  
-  function answerYes() {
-    confettiBlast();
-    setTimeout(() => {
-      alert("You’re my Valentine 🤍 I love you.");
-    }, 500);
-  }
-  ("Too late 😌 you already have my heart");
-  }
+function answerYes() {
+  confettiBlast();
+  setTimeout(() => {
+    alert("You’re my Valentine 🤍");
+  }, 500);
+}
+
+function answerNo() {
+  alert("Too late 😌 you already have my heart");
+}
 </script>
 
 </body>
