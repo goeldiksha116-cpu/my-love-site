@@ -11,6 +11,16 @@
     font-family: Arial, sans-serif;
     overflow: hidden;
     background: black;
+    .confetti {
+  position: fixed;
+  top: -20px;
+  font-size: 24px;
+  z-index: 9999;
+  pointer-events: none;
+  animation-name: fall;
+  animation-timing-function: linear;
+}
+    
   }
 
   /* 🔐 LOCK SCREEN */
@@ -214,26 +224,27 @@
     }, 40000);
   }
 
-  function confettiBlast() {
-    for (let i = 0; i < 50; i++) {
-      const c = document.createElement("div");
-      c.className = "confetti";
-      c.innerHTML = "💖";
-      c.style.left = Math.random() * 100 + "vw";
-      document.body.appendChild(c);
-      setTimeout(() => c.remove(), 3000);
-    }
+function confettiBlast() {
+  const emojis = ["💖", "💘", "✨", "🌸", "🥰"];
+  for (let i = 0; i < 150; i++) {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 6000);
   }
+}
 
+  
   function answerYes() {
     confettiBlast();
     setTimeout(() => {
       alert("You’re my Valentine 🤍 I love you.");
     }, 500);
   }
-
-  function answerNo() {
-    alert("Too late 😌 you already have my heart");
+  ("Too late 😌 you already have my heart");
   }
 </script>
 
