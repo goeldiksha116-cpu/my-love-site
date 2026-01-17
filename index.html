@@ -2,213 +2,239 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For My Habibti 🤍</title>
+<title>For My Valentine 🤍</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffd6e8, #ffeef5);
+    overflow: hidden;
+    background: black;
+  }
+
+  /* 🔐 LOCK SCREEN */
+  #lockScreen {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 10;
     text-align: center;
-    overflow-x: hidden;
   }
 
-  h1, h2, h3 {
-    color: #ff4f8b;
-  }
-
-  .lock {
-    margin-top: 120px;
-  }
-
-  input {
+  #lockScreen input {
     padding: 12px;
     font-size: 16px;
     border-radius: 10px;
-    border: 1px solid #ccc;
+    border: none;
+    margin-top: 15px;
+    text-align: center;
   }
 
-  button {
+  #lockScreen button {
     margin-top: 15px;
-    padding: 12px 25px;
-    font-size: 16px;
-    border-radius: 25px;
+    padding: 12px 30px;
+    border-radius: 30px;
     border: none;
-    background: #ff7aa2;
-    color: white;
+    background: white;
+    color: #ff4f8b;
+    font-size: 16px;
     cursor: pointer;
   }
 
-  .error {
-    color: red;
+  #error {
     margin-top: 10px;
+    color: #b00020;
   }
 
-  .content {
-    display: none;
-    max-width: 800px;
-    margin: auto;
+  /* 🌸 STORY SECTIONS */
+  section {
+    position: absolute;
+    inset: 0;
     padding: 40px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 2s ease;
+    background-size: cover;
+    background-position: center;
   }
 
-  .card {
-    background: white;
-    padding: 25px;
-    border-radius: 22px;
-    margin: 25px 0;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  section.active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  h1, h2 {
+    margin-top: 60px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
   }
 
   img {
-    width: 100%;
+    max-width: 85%;
+    max-height: 60vh;
+    border-radius: 25px;
+    margin-top: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    animation: heartbeat 3s infinite;
+  }
+
+  .caption {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 18px;
+    background: rgba(0,0,0,0.35);
+    display: inline-block;
+    padding: 10px 20px;
     border-radius: 20px;
   }
 
-  #caption {
-    margin-top: 15px;
-    font-style: italic;
-    color: #555;
+  button.choice {
+    padding: 15px 35px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    background: white;
+    color: #ff4f8b;
+    cursor: pointer;
+    margin: 15px;
   }
 
-  .heart {
+  @keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.03); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+  }
+
+  .confetti {
     position: fixed;
-    bottom: -20px;
+    top: -10px;
     font-size: 20px;
-    animation: floatUp 6s linear infinite;
-    opacity: 0.7;
+    animation: fall 3s linear forwards;
   }
 
-  @keyframes floatUp {
-    from { transform: translateY(0); opacity: 1; }
-    to { transform: translateY(-110vh); opacity: 0; }
+  @keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
   }
+
+  /* 🖼️ BACKGROUNDS */
+  #page1 { background-image: url("bg1.jpg"); }
+  #page2 { background-image: url("bg2.jpg"); }
+  #page3 { background-image: url("bg3.jpg"); }
+  #page4 { background-image: url("bg4.jpg"); }
+  #page5 { background-image: url("bg5.jpg"); }
 </style>
 </head>
 
 <body>
 
 <!-- 🔐 LOCK SCREEN -->
-<div class="lock" id="lockScreen">
-  <h2>For My Habibti 🤍</h2>
+<div id="lockScreen">
+  <h1>For My Habibti 🤍</h1>
   <p>Enter the password</p>
   <input type="password" id="passwordInput" placeholder="password">
-  <br>
   <button onclick="unlock()">Unlock 💖</button>
-  <p class="error" id="error"></p>
+  <div id="error"></div>
 </div>
 
-<!-- 💖 MAIN CONTENT -->
-<div class="content" id="content">
-
-  <h1>Hey My Syrian 😏🤍</h1>
-
-  <div class="card">
-    <p>
-      Hey babby,<br>
-      We haven’t met yet, but you already feel like home.
-    </p>
-    <p>
-      You calling me babby fixes my day.<br>
-      You calling me habibi melts my heart.
-    </p>
-  </div>
-
-  <!-- 🖼️ SLIDESHOW WITH CAPTIONS -->
-  <div class="card">
-    <h3>Us 🤍</h3>
-    <img id="slideshow" src="slideshow1.jpg">
-    <p id="caption">The moment I knew it was you 🤍</p>
-  </div>
-
-  <div class="card">
-    <h3>Why I Love You 💕</h3>
-    <p>• You’re gentle with my heart</p>
-    <p>• You make distance feel smaller</p>
-    <p>• You feel real even from far away</p>
-    <p>• You’re my favorite person</p>
-  </div>
-
-  <div class="card">
-    <h3>In Arabic 🇸🇾</h3>
-    <p><b>حبيبتي، أنتِ روحي وحياتي</b></p>
-    <p>My love, you are my soul and my life</p>
-    <p><b>قلبي معك دائمًا</b></p>
-  </div>
-
-  <div class="card">
-    <h3>When We Meet 🌙</h3>
-    <p>Our first hug (I won’t let go)</p>
-    <p>Holding hands everywhere</p>
-    <p>Sleeping next to each other, not on FaceTime</p>
-    <p><b>Soon,my habibtiiiiii 🤍</b></p>
-  </div>
-
-  <div class="card">
-    <p>
-      I choose you.<br>
-      I wait for you.<br>
-      I love you, habibti 🤍
-    </p>
-  </div>
-  
-<div class="card">
-  <button onclick="toggleMusic()">Play / Pause 🎵</button>
-</div>
-<!-- 🎵 MUSIC (we’ll polish next) -->
+<!-- 🎵 MUSIC -->
 <audio id="music" loop>
-  <source src=""https://files.catbox.moe/usg58h.mp3type="audio/mpeg">
+  <source src="https://files.catbox.moe/usg58h.mp3" type="audio/mpeg">
 </audio>
 
+<!-- 🌸 STORY PAGES -->
+<section id="page1" class="active">
+  <h1>Hey My Syrian 🤍</h1>
+  <h2>This is just for you</h2>
+</section>
+
+<section id="page2">
+  <h2>This Is You 🤍</h2>
+  <img src="slideshow1.jpg">
+  <div class="caption">pleaseeeee keeep my louts alwayyyys happpy and never let anybody take her smile awayyyyy🧿</div>
+</section>
+
+<section id="page3">
+  <h2>Every Time I See You</h2>
+  <img src="slideshow2.jpg">
+  <div class="caption">please i want thisssss kissessssssss forever😩😘🪷♾️</div>
+</section>
+
+<section id="page4">
+  <h2>No Matter The Distance</h2>
+  <img src="slideshow3.jpg">
+  <div class="caption">im so obsesssssssed with thissssss cutieeeeeeeeeeeeee please look at her so cuteeeeeeee😝😏</div>
+</section>
+  
+<section id="page5">
+  <h1>So… 💖</h1>
+  <h2>Will you be my Valentine?</h2>
+  <img src="slideshow4.jpg">
+  <br><br>
+  <button class="choice" onclick="answerYes()">YES 💘</button>
+  <button class="choice" onclick="answerNo()">NO 🙈</button>
+</section>
+
 <script>
+  const correctPassword = "matta";
+  const pages = document.querySelectorAll("section");
+  let currentPage = 0;
+  let started = false;
+
   function unlock() {
-    const correctPassword = "matta";
     const entered = document.getElementById("passwordInput").value.trim();
-function toggleMusic() {
-  const music = document.getElementById("music");
-  if (music.paused) {
-    music.play();
-  } else {
-    music.pause();
-  }
-}
     if (entered === correctPassword) {
       document.getElementById("lockScreen").style.display = "none";
-      document.getElementById("content").style.display = "block";
-      document.getElementById("music").play();
-      startHearts();
+      startStory();
     } else {
       document.getElementById("error").innerText = "Wrong password 💔";
     }
   }
 
-  function startHearts() {
+  function startStory() {
+    if (started) return;
+    started = true;
+
+    const music = document.getElementById("music");
+    music.volume = 0.6;
+    music.play();
+
     setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "💖";
-      heart.style.left = Math.random() * 100 + "vw";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
+      pages[currentPage].classList.remove("active");
+      currentPage = (currentPage + 1) % pages.length;
+      pages[currentPage].classList.add("active");
+    }, 40000);
+  }
+
+  function confettiBlast() {
+    for (let i = 0; i < 50; i++) {
+      const c = document.createElement("div");
+      c.className = "confetti";
+      c.innerHTML = "💖";
+      c.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 3000);
+    }
+  }
+
+  function answerYes() {
+    confettiBlast();
+    setTimeout(() => {
+      alert("You’re my Valentine 🤍 I love you.");
     }, 500);
   }
 
-  // 🖼️ SLIDESHOW + CAPTIONS (5 PHOTOS)
-  const slides = [
-    { image: "slidepage1.jpe", caption: "please keep this smile of yours forvrt" },
-    { image: "slideshow2.jp", caption: "i loveeeeee some kissessss pls never stop giving me kisess" },
-    { image: "slideshow3.jpeg", caption: "Distance means nothing with you specially when you melt me likee thiss" },
-    { image: "slideshow4.jpeg", caption: "not gonnnaaaaaaa lieeee this is my favriout😩 sooooooo cuteeee" },
-    { image: "slideshow5.jpeg", caption: "Forever my habibti 💖 and divaaaaaaaaa🪷😈" }
-  ];
-
-  let current = 0;
-
-  setInterval(() => {
-    current = (current + 1) % slides.length;
-    document.getElementById("slideshow").src = slides[current].image;
-    document.getElementById("caption").innerText = slides[current].caption;
-  }, 3000);
+  function answerNo() {
+    alert("Too late 😌 you already have my heart");
+  }
 </script>
 
 </body>
