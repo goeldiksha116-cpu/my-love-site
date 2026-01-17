@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>For My Habibti 🤍</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #fbcfe8, #fda4af);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 22px;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+h1 {
+  text-align: center;
+  color: #e11d48;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 12px;
+  background: #fda4af;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.section {
+  display: none;
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.section.active { display: block; }
+
+details {
+  background: #fce7f3;
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.ending {
+  text-align: center;
+  font-size: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 8px;
+}
+
+/* FLOATING HEARTS */
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: float 8s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING HEARTS -->
+<script>
+for (let i = 0; i < 20; i++) {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerText = "🤍";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.animationDuration = 5 + Math.random() * 5 + "s";
+  document.body.appendChild(h);
+}
+</script>
+
+<div class="card">
+  <!-- 🔴 CHANGE HER NAME HERE -->
+  <h1>For My Habibti 🤍</h1>
+  <div class="subtitle">My Syrian • My Babby • My Heart</div>
+
+  <button onclick="show('home')">Us</button>
+  <button onclick="show('reasons')">Why You</button>
+  <button onclick="show('arabic')">In Arabic</button>
+  <button onclick="show('future')">When We Meet</button>
+  <button onclick="show('letters')">Open When</button>
+  <button onclick="show('secret')">Only For You</button>
+
+  <div id="home" class="section active">
+    <p>
+      My beautiful <b>habibti</b>,<br><br>
+      Even before I met you, my heart chose you.
+      You call me <b>babby</b> and everything feels lighter.
+      Distance exists, but it doesn’t scare me —
+      because loving you feels right 🤍
+    </p>
+  </div>
+
+  <div id="reasons" class="section">
+    <ul>
+      <li>You feel like home</li>
+      <li>You’re gentle with my heart</li>
+      <li>You believe in us</li>
+      <li>You make distance worth it</li>
+      <li>You’re my forever person</li>
+    </ul>
+  </div>
+
+  <div id="arabic" class="section">
+    <p>
+      <b>Arabic words I mean with my whole heart:</b><br><br>
+      حبيبتي، أنتِ روحي وحياتي 🤍<br>
+      (My love, you are my soul and my life)<br><br>
+
+      أنا أحبك أكثر مما تتخيلين<br>
+      (I love you more than you can imagine)<br><br>
+
+      مهما كانت المسافة، قلبي معك دائمًا<br>
+      (No matter the distance, my heart is always with you)
+    </p>
+  </div>
+
+  <div id="future" class="section">
+    <ul>
+      <li>Our first hug (I won’t let go)</li>
+      <li>Holding hands everywhere</li>
+      <li>Falling asleep next to each other</li>
+      <li>Laughing about how we waited</li>
+    </ul>
+    <p style="text-align:center;"><i>Soon, inshallah 🤍</i></p>
+  </div>
+
+  <div id="letters" class="section">
+    <details>
+      <summary>Open when you miss me</summary>
+      <p>I miss you too. I’m right here.</p>
+    </details>
+    <details>
+      <summary>Open when you feel lonely</summary>
+      <p>You’re never alone, habibti.</p>
+    </details>
+    <details>
+      <summary>Open when you feel loved</summary>
+      <p>That’s because you are.</p>
+    </details>
+  </div>
+
+  <!-- 🔐 PASSWORD PAGE -->
+  <div id="secret" class="section">
+    <p><b>This part is only for you 🤍</b></p>
+    <p>Enter the password:</p>
+
+    <!-- 🔴 CHANGE PASSWORD HERE -->
+    <input id="pw" placeholder="hint: something only we know" />
+    <button onclick="check()">Unlock</button>
+
+    <div id="lockedMsg" style="display:none; margin-top:12px;">
+      <hr>
+      <p class="ending">
+        My love,<br><br>
+        If I could choose anyone in the world,
+        in every lifetime,
+        it would still be you.<br><br>
+
+        I don’t know when,
+        but I know who.<br><br>
+
+        It’s you.
+        Always you. 🤍💍
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function check() {
+  const correct = "babby"; // 🔴 CHANGE PASSWORD
+  if (document.getElementById("pw").value === correct) {
+    document.getElementById("lockedMsg").style.display = "block";
+  } else {
+    alert("Not yet, habibti 🤍");
+  }
+}
+</script>
+
+</body>
+</html>
