@@ -151,9 +151,10 @@
       I love you, habibti 🤍
     </p>
   </div>
-
+  
+<div class="card">
+  <button onclick="toggleMusic()">Play / Pause 🎵</button>
 </div>
-
 <!-- 🎵 MUSIC (we’ll polish next) -->
 <audio id="music" loop>
   <source src=""https://files.catbox.moe/usg58h.mp3type="audio/mpeg">
@@ -163,7 +164,14 @@
   function unlock() {
     const correctPassword = "matta";
     const entered = document.getElementById("passwordInput").value.trim();
-
+function toggleMusic() {
+  const music = document.getElementById("music");
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
+}
     if (entered === correctPassword) {
       document.getElementById("lockScreen").style.display = "none";
       document.getElementById("content").style.display = "block";
@@ -187,11 +195,11 @@
 
   // 🖼️ SLIDESHOW + CAPTIONS (5 PHOTOS)
   const slides = [
-    { image: "slideshow1.jpg", caption: "please keep this smile of yours forvrt" },
-    { image: "slideshow2.jpg", caption: "i loveeeeee some kissessss pls never stop giving me kisess" },
-    { image: "slideshow3.jpg", caption: "Distance means nothing with you specially when you melt me likee thiss" },
-    { image: "slideshow4.jpg", caption: "not gonnnaaaaaaa lieeee this is my favriout😩 sooooooo cuteeee" },
-    { image: "slideshow5.jpg", caption: "Forever my habibti 💖 and divaaaaaaaaa🪷😈" }
+    { image: "slidepage1.jpe", caption: "please keep this smile of yours forvrt" },
+    { image: "slideshow2.jp", caption: "i loveeeeee some kissessss pls never stop giving me kisess" },
+    { image: "slideshow3.jpeg", caption: "Distance means nothing with you specially when you melt me likee thiss" },
+    { image: "slideshow4.jpeg", caption: "not gonnnaaaaaaa lieeee this is my favriout😩 sooooooo cuteeee" },
+    { image: "slideshow5.jpeg", caption: "Forever my habibti 💖 and divaaaaaaaaa🪷😈" }
   ];
 
   let current = 0;
